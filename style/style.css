@@ -1,0 +1,226 @@
+:root {
+    /* PRINCIPALE */
+    --rose: #CB2D6F;
+    --bleu: #14A098;
+
+    /* SECONDAIRE */
+    --violet: #501F3A;
+    --argent: #CCCCCC;
+    --bleuFonce: #0F292F;
+
+    /* ALERTE */
+    --fail: #E74C3C;
+    --warning: #F1C40F;
+    --success: #2ECC71;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+*::-webkit-scrollbar {
+    display: none;
+}
+body {
+    overflow: hidden;
+}
+a {
+    text-decoration: none;
+}
+p {
+    font-family: cyber;
+}
+
+/* header */
+
+header {
+    position: fixed;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+nav {
+    height: 100%;
+}
+nav > ul {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+}
+nav a:not(nav a:last-child) {
+    margin-right: 10px;
+}
+nav li {
+    list-style: none;
+    color: black;
+    background: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.5s, color 0.5s;
+}
+nav a:first-child li {
+    background: black;
+    color: white;
+}
+
+/* main */
+main {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+}
+section {
+    width: 100%;
+    height: 100vh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+section > h1 {
+    text-align: center;
+    padding-top: 10px;
+    font-size: 2.5rem;
+    font-family: logo;
+}
+
+/* Section 1 */
+#s1 {
+    background: red;
+    position: relative;
+}
+#s1 > article {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 200px;
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#s1 button {
+    font-size: 1.5rem;
+    padding: 10px;
+    cursor: pointer;
+    background: var(--bleu);
+    border-radius: 5px;
+    border: none;
+    transition: background 0.5s, color 0.5s, border-radius 1s;
+}
+#s1 button:hover {
+    background: var(--bleuFonce);
+    border-radius: 100px;
+    color: white;
+}
+
+/* Section 2 */
+#s2 {
+    background: green;
+}
+#s2 > article {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#s2 > article > img {
+    width: 350px;
+}
+#s2 > article > p {
+    max-width: 40%;
+}
+
+/* Section 3 */
+#s3, #s4 {
+    position: relative;
+}
+#s3 > article, #s4 > article {
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+
+    /*SLIDER*/
+    width: auto;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+}
+#s3 > article .slider, #s4 > article .slider {
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    transition: transform 1s;
+}
+#s3 > article .card, #s4 > article .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% / 3);
+    height: 700px;
+
+    /*SLIDER*/
+    flex-shrink: 0;
+    padding-left: 20px;
+    scroll-snap-align: center;
+}
+#s3 > article img, #s4 > article img {
+    width: 300px;
+    height: 175px;
+    margin-bottom: 25px;
+}
+#s3 > article p, #s4 > article p {
+    text-align: justify;
+    text-align-last: justify;
+    max-width: 75%;
+}
+
+#s3 .avant, #s3 .apres, #s4 .avant, #s4 .apres {
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    font-size: 20px;
+}
+#s3 .avant, #s4 .avant {
+    left: 0;
+    background: linear-gradient(135deg, #2de2e6, #035ee8);
+}
+#s3 .apres, #s4 .apres {
+    right: 0;
+    background: linear-gradient(135deg, #f6019d, #9700cc);
+}
+
+/* Section 4 */
+#s4 {
+    background: black;
+    color: white;
+}
+
+/* EASTER EGG */
+
+.surprise {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100000000;
+    background: #BB0000;
+    text-align: center;
+}
+.surprise > img {
+    height: 100%;
+}
