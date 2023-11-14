@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/x-icon" href="img/icon.png" />
+	<title> OFF-WORLD </title>
+	<style type="text/css">
+		@font-face {
+			font-family: "time";
+			src: url("style/fonts/lazer84.ttf");
+		}
+		@font-face {
+			font-family: "AgencyG";
+			src: url("style/fonts/Agency-Gras.ttf");
+		}
+		* {
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+		*::-webkit-scrollbar {
+			display: none;
+		}
+		body {
+			overflow: hidden;
+		}
+		a {
+			text-decoration: none;
+		}
+
+		/* header */
+
+		header {
+			position: fixed;
+			bottom: 50px;
+			left: 50%;
+			transform: translateX(-50%);
+			z-index: 1000;
+		}
+		nav {
+			height: 100%;
+		}
+		nav > ul {
+			display: flex;
+			justify-content: space-between;
+			height: 100%;
+		}
+		nav a:not(nav a:last-child) {
+			margin-right: 10px;
+		}
+		nav li {
+			list-style: none;
+			color: black;
+			background: white;
+			width: 50px;
+			height: 50px;
+			border-radius: 200px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			transition: background 0.5s, color 0.5s;
+		}
+		nav a:first-child li {
+			background: black;
+			color: white;
+		}
+
+		/* main */
+		main {
+			scroll-behavior: smooth;
+			scroll-snap-type: y mandatory;
+			overflow-y: scroll;
+			height: 100vh;
+		}
+		section {
+			width: 100%;
+			height: 100vh;
+			scroll-snap-align: start;
+			scroll-snap-stop: always;
+		}
+		section > h1 {
+			text-align: center;
+			padding-top: 10px;
+			font-size: 2.5rem;
+			font-family: AgencyG;
+		}
+
+		/* Section 1 */
+		#s1 {
+			background: red;
+			position: relative;
+		}
+		#s1 > article {
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			bottom: 200px;
+			width: 50%;
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+		}
+		#s1 button {
+			font-size: 1.5rem;
+			padding: 10px;
+			cursor: pointer;
+			background: white;
+			border-radius: 5px;
+			border: none;
+			transition: background 0.5s, color 0.5s;
+		}
+		#s1 button:hover {
+			background: black;
+			color: white;
+		}
+
+		/* Section 2 */
+		#s2 {
+			background: green;
+		}
+		#s2 > article {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+		}
+		#s2 > article > img {
+			width: 350px;
+		}
+		#s2 > article > p {
+			max-width: 40%;
+		}
+
+		/* Section 3 */
+		#s3, #s4 {
+			position: relative;
+		}
+		#s3 > article, #s4 > article {
+			height: 100%;
+			display: flex;
+			justify-content: flex-start;
+			align-items: stretch;
+
+			/*SLIDER*/
+			width: auto;
+			overflow-y: hidden;
+			overflow-x: scroll;
+			scroll-behavior: smooth;
+			scroll-snap-type: x mandatory;
+		}
+		#s3 > article .slider, #s4 > article .slider {
+			height: 100%;
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+			transition: transform 1s;
+		}
+		#s3 > article .card, #s4 > article .card {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			width: calc(100% / 3);
+			height: 700px;
+
+			/*SLIDER*/
+			flex-shrink: 0;
+			padding-left: 20px;
+			scroll-snap-align: center;
+		}
+		#s3 > article img, #s4 > article img {
+			width: 300px;
+			height: 175px;
+			margin-bottom: 25px;
+		}
+		#s3 > article p, #s4 > article p {
+			text-align: justify;
+			text-align-last: justify;
+			max-width: 75%;
+		}
+
+		#s3 .avant, #s3 .apres, #s4 .avant, #s4 .apres {
+			width: 50px;
+			height: 50px;
+			border-radius: 100px;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			border: none;
+			font-size: 20px;
+		}
+		#s3 .avant, #s4 .avant {
+			left: 0;
+			background: linear-gradient(135deg, #2de2e6, #035ee8);
+		}
+		#s3 .apres, #s4 .apres {
+			right: 0;
+			background: linear-gradient(135deg, #f6019d, #9700cc);
+		}
+
+		/* Section 4 */
+		#s4 {
+			background: black;
+			color: white;
+		}
+
+		/* EASTER EGG */
+
+		.surprise {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			z-index: 100000000;
+			background: #BB0000;
+			text-align: center;
+		}
+		.surprise > img {
+			height: 100%;
+		}
+	</style>
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$("header li").click(function() {
+				console.log($("div").eq(1).offset());
+				$("header li").css({background:"white",color:"black"});
+				$(this).css({background:"black",color:"white"});
+			})
+
+			function scrollMain() {
+				for(let i=0;i<$("main > section").length;i++) {
+					if($("main > section").eq(i).offset().top==0) {
+						$("header li").css({background:"white",color:"black"});
+						$("header li").eq(i).css({background:"black",color:"white"});
+					}
+				}
+			}
+
+			$("main").scroll(scrollMain);
+
+			for(let i=0;i<$(".slider").length;i++) {
+				if($(".slider").get(i).scrollWidth<=$(window).width()) {
+					$(".avant").eq(i).remove();
+					$(".apres").eq(i).remove();
+				}
+			}
+
+			let posSlider=[0,0], wSlide;
+			wSlide=$(".slider").get(0).scrollWidth;
+
+			$("#s3 > button, #s4 > button").click(function() {
+				let iAft=$(".apres").index($(this)), iBef=$(".avant").index($(this));
+
+				if($(this).hasClass("apres")) {
+					if(posSlider[iAft]<=-wSlide+$(window).width()) {
+						posSlider[iAft]=-wSlide+$(window).width();
+					}
+					else {
+						posSlider[iAft]-=$(window).width()/3;
+					}
+				}
+				else {
+					if(posSlider[iBef]>=0) {
+						posSlider[iBef]=0;
+					}
+					else {
+						posSlider[iBef]+=$(window).width()/3;
+					}
+				}
+
+				$(".slider").eq(iBef).css("transform",`translateX(${posSlider[iBef]}px)`);
+				$(".slider").eq(iAft).css("transform",`translateX(${posSlider[iAft]}px)`);
+			})
+		})
+	</script>
+</head>
+<body>
+
+<header>
+	<nav>
+		<ul>
+			<a href="#s1"><li>Nav1</li></a>
+			<a href="#s2"><li>Nav2</li></a>
+			<a href="#s3"><li>Nav3</li></a>
+			<a href="#s4"><li>Nav4</li></a>
+		</ul>
+	</nav>
+</header>
+
+<main>
+	<section id="s1">
+		<article>
+			<a href="#"><button>Download</button></a>
+			<a href="#"><button>Vers Site Indices</button></a>
+		</article>
+	</section>
+
+	<section id="s2">
+		<h1>Présentation Jeu</h1>
+		<article>
+			<img src="img/logo.png" alt=""/>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae scelerisque risus, quis ultricies quam. Donec vel vehicula felis, sit amet lobortis dui. Proin non nisl sed augue vehicula fringilla at sit amet eros. Maecenas semper, arcu vitae laoreet eleifend, erat est dignissim sapien, sed hendrerit mi nunc eget justo. Fusce placerat ut orci id posuere. Mauris ullamcorper efficitur sodales. Mauris ligula massa, tempor eu eros nec, viverra egestas orci. Aenean tellus magna, malesuada ac faucibus ac, varius eget eros. In placerat, ex eget eleifend pulvinar, nunc dolor tempus lacus, a egestas mi nisi at tortor. Cras in leo et felis pulvinar consectetur. Nulla vitae lorem non libero lobortis auctor.</p>
+		</article>
+	</section>
+
+	<section id="s3">
+		<h1>Éléments du jeu</h1>
+		<article>
+			<div class="slider">
+				<div class="card">
+					<img src="SVG/1.svg"/>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae scelerisque risus, quis ultricies quam. Donec vel vehicula felis, sit amet lobortis dui. Proin non nisl sed augue vehicula fringilla at sit amet eros. Maecenas semper, arcu vitae laoreet eleifend, erat est dignissim sapien, sed hendrerit mi nunc eget justo. Fusce placerat ut orci id posuere.</p>
+				</div>
+				<div class="card">
+					<img src="SVG/2.svg"/>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae scelerisque risus, quis ultricies quam. Donec vel vehicula felis, sit amet lobortis dui. Proin non nisl sed augue vehicula fringilla at sit amet eros. Maecenas semper, arcu vitae laoreet eleifend, erat est dignissim sapien, sed hendrerit mi nunc eget justo. Fusce placerat ut orci id posuere.</p>
+				</div>
+				<div class="card">
+					<img src="SVG/3.svg"/>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae scelerisque risus, quis ultricies quam. Donec vel vehicula felis, sit amet lobortis dui. Proin non nisl sed augue vehicula fringilla at sit amet eros. Maecenas semper, arcu vitae laoreet eleifend, erat est dignissim sapien, sed hendrerit mi nunc eget justo. Fusce placerat ut orci id posuere.</p>
+				</div>
+				<div class="card">
+					<img src="SVG/4.svg"/>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae scelerisque risus, quis ultricies quam. Donec vel vehicula felis, sit amet lobortis dui. Proin non nisl sed augue vehicula fringilla at sit amet eros. Maecenas semper, arcu vitae laoreet eleifend, erat est dignissim sapien, sed hendrerit mi nunc eget justo. Fusce placerat ut orci id posuere.</p>
+				</div>
+				<div class="card">
+					<img src="SVG/5.svg"/>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae scelerisque risus, quis ultricies quam. Donec vel vehicula felis, sit amet lobortis dui. Proin non nisl sed augue vehicula fringilla at sit amet eros. Maecenas semper, arcu vitae laoreet eleifend, erat est dignissim sapien, sed hendrerit mi nunc eget justo. Fusce placerat ut orci id posuere.</p>
+				</div>
+			</div>
+		</article>
+		
+		<button class="avant"><</button>
+		<button class="apres">></button>
+
+	</section>
+
+	<section id="s4">
+		<h1>Tripoloski</h1>
+
+		<article>
+			<div class="slider">
+				<div class="card">
+					<img src="SVG/1.svg"/>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae scelerisque risus, quis ultricies quam. Donec vel vehicula felis, sit amet lobortis dui. Proin non nisl sed augue vehicula fringilla at sit amet eros. Maecenas semper, arcu vitae laoreet eleifend, erat est dignissim sapien, sed hendrerit mi nunc eget justo. Fusce placerat ut orci id posuere.</p>
+				</div>
+				<div class="card">
+					<img src="SVG/2.svg"/>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae scelerisque risus, quis ultricies quam. Donec vel vehicula felis, sit amet lobortis dui. Proin non nisl sed augue vehicula fringilla at sit amet eros. Maecenas semper, arcu vitae laoreet eleifend, erat est dignissim sapien, sed hendrerit mi nunc eget justo. Fusce placerat ut orci id posuere.</p>
+				</div>
+				<div class="card">
+					<img src="SVG/3.svg"/>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae scelerisque risus, quis ultricies quam. Donec vel vehicula felis, sit amet lobortis dui. Proin non nisl sed augue vehicula fringilla at sit amet eros. Maecenas semper, arcu vitae laoreet eleifend, erat est dignissim sapien, sed hendrerit mi nunc eget justo. Fusce placerat ut orci id posuere.</p>
+				</div>
+				<div class="card">
+					<img src="SVG/4.svg"/>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae scelerisque risus, quis ultricies quam. Donec vel vehicula felis, sit amet lobortis dui. Proin non nisl sed augue vehicula fringilla at sit amet eros. Maecenas semper, arcu vitae laoreet eleifend, erat est dignissim sapien, sed hendrerit mi nunc eget justo. Fusce placerat ut orci id posuere.</p>
+				</div>
+				<div class="card">
+					<img src="SVG/5.svg"/>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae scelerisque risus, quis ultricies quam. Donec vel vehicula felis, sit amet lobortis dui. Proin non nisl sed augue vehicula fringilla at sit amet eros. Maecenas semper, arcu vitae laoreet eleifend, erat est dignissim sapien, sed hendrerit mi nunc eget justo. Fusce placerat ut orci id posuere.</p>
+				</div>
+			</div>
+		</article>
+		
+		<button class="avant"><</button>
+		<button class="apres">></button>
+	</section>
+</main>
+
+</body>
+</html>
