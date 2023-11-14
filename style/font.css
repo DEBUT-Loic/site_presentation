@@ -6,3 +6,7 @@
     font-family: "cyber";
     src: url("fonts/Jura-Regular.ttf");
 }
+@font-face {
+    font-family: "cyberGras";
+    src: url("fonts/Jura-Bold.ttf");
+}
