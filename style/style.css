@@ -129,6 +129,13 @@ section > h2 {
 #s2 {
     background: url("../img/fond-pres.png") center no-repeat;
     background-size: 150%;
+    position: relative;
+}
+#s2 > h2 {
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 #s2 > article {
     width: 100%;
@@ -140,10 +147,13 @@ section > h2 {
 #s2 > article > img {
     width: 350px;
 }
-#s2 > article > p {
+#s2 #descPres {
     max-width: 40%;
     font-size: 1.25rem;
     font-family: cyberGras;
+}
+#descPres h3 {
+    text-align: center;
 }
 
 /* Section 3 */
