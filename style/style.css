@@ -222,10 +222,12 @@ section > h2 {
 #s3 .avant, #s4 .avant {
     left: 0;
     background: linear-gradient(135deg, #2de2e6, #035ee8);
+    margin-left: 1vw;
 }
 #s3 .apres, #s4 .apres {
     right: 0;
     background: linear-gradient(135deg, #f6019d, #9700cc);
+    margin-right: 1vw;
 }
 
 /* Section 3 */
