@@ -218,6 +218,7 @@ section > h2 {
     transform: translateY(-50%);
     border: none;
     font-size: 20px;
+    cursor: pointer;
 }
 #s3 .avant, #s4 .avant {
     left: 0;
