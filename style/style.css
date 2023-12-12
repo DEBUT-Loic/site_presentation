@@ -153,6 +153,9 @@ section > h2 {
 #descPres h3 {
     text-align: center;
 }
+#descPres h3, #descPres p:not(#descPres p:last-child) {
+    margin-bottom: 23px;
+}
 
 /* Section 3 */
 #s3, #s4 {
