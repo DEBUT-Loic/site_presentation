@@ -112,6 +112,7 @@ section > h2 {
     bottom: 200px;
     width: 50%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
 }
@@ -143,11 +144,12 @@ section > h2 {
     align-items: center;
 }
 #s2 > article > img {
-    width: 350px;
+    width: clamp(180px,28vw,350px);
 }
 #s2 #descPres {
     max-width: 40%;
-    font-size: 1.25rem;
+    /* font-size: 1.25rem; */
+    font-size: clamp(12px,2vw,1.25rem);
     font-family: "cyberGras";
 }
 #descPres h3 {
@@ -251,18 +253,33 @@ section > h2 {
     font-family: 'cyberGras';
 }
 
-/* EASTER EGG */
-
-.surprise {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 100000000;
-    background: #BB0000;
-    text-align: center;
+@media all and (max-width: 750px) {
+    nav {
+        display: none;
+    }
+    #s3 > article .card, #s4 > article .card {
+        flex-direction: column;
+    }
+    #s3 > article .card > * {
+        width: 90%;
+    }
 }
-.surprise > img {
-    height: 100%;
+
+@media all and (max-width: 693px) {
+    #s1 a:first-child button {
+        margin-bottom: 20px;
+    }
+
+    #s2 > article {
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    #s2 #descPres {
+        max-width: 90%;
+        text-align: center;
+    }
+
+    #s4 > article .card {
+        padding-left: 0;
+    }
 }
