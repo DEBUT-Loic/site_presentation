@@ -138,6 +138,7 @@ section h2 {
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: -1;
 }
 
 #s2 {
@@ -166,6 +167,10 @@ section h2 {
 }
 #descPres h3, #descPres p:not(#descPres p:last-child) {
     margin-bottom: 23px;
+}
+#descPres p {
+    font-size: clamp(12px,2vw,1.25rem);
+    font-family: "cyberGras";
 }
 
 /* Section 3 */
