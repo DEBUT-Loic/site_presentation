@@ -9,7 +9,15 @@ function scrollMain() {
 			$("header li").eq(i).css({background:"black",color:"white"});
 		}
 	}
+
+	console.log($("link").attr("href"))
+	if($("#s2").offset().top==0 && $("link").eq($("link").length-1).attr("href")!="style/cathodique.css") {
+		console.log("le chien")
+		$("head").append('<link rel="stylesheet" href="style/cathodique.css">');
+	}
 }
+
+
 $("main").scroll(scrollMain);
 for(let i=0;i<$(".slider").length;i++) {
 	if($(".slider").get(i).scrollWidth<=$(window).width()) {
