@@ -102,7 +102,7 @@ section h2 {
 
 /* Section 1 */
 #s1 {
-    background: red;
+    background-color: red;
     position: relative;
 }
 #s1 > article {
