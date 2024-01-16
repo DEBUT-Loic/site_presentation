@@ -2,6 +2,21 @@ $("header li").click(function() {
 	$("header li").css({background:"white",color:"black"});
 	$(this).css({background:"black",color:"white"});
 })
+
+
+$("#s4 img").hover(function() {
+	$(this).fadeOut("fast",function() {
+		$(this).attr("src",`img/photo/${$(this).attr("alt")}_fun.png`)
+		$(this).fadeIn("fast");
+	})
+	// $(this).attr("src",`img/photo/${$(this).attr("alt")}_fun.png`);
+}, function() {
+	$(this).fadeOut("fast",function() {
+		$(this).attr("src",`img/photo/${$(this).attr("alt")}.png`)
+		$(this).fadeIn("fast");
+	})
+})
+
 function scrollMain() {
 	for(let i=0;i<$("main > section").length;i++) {
 		if($("main > section").eq(i).offset().top==0) {
@@ -10,10 +25,10 @@ function scrollMain() {
 		}
 	}
 
-	console.log($("link").attr("href"))
 	if($("#s2").offset().top==0 && $("link").eq($("link").length-1).attr("href")!="style/cathodique.css") {
-		console.log("le chien")
-		$("head").append('<link rel="stylesheet" href="style/cathodique.css">');
+		setTimeout(function() {
+			$("head").append('<link rel="stylesheet" href="style/cathodique.css">');
+		},50);
 	}
 }
 

@@ -179,7 +179,7 @@
 	position: relative;
 	overflow: hidden;
 }
-#s2::after {
+#s2 > .screen::after {
 	content: " ";
 	display: block;
 	position: absolute;
@@ -205,21 +205,24 @@
 	background-size: 100% 2px, 3px 100%;
 	pointer-events: none;
 }
-#s2::after {
-	animation: flicker 0.15s infinite;
-}
 
 .screen {
-	width: 100%;
+	width: 133vh;
 	height: 100%;
 	border: none;
 	opacity: 0;
+	margin: auto;
+	background: linear-gradient(135deg,#42bcb4,#00847d);
 }
 
 #s2 > .screen {
 	animation: turn-on 4s linear;
 	animation-fill-mode: forwards;
 }
+#s2 > .screen::after {
+	animation: flicker 0.15s infinite;
+}
+
  @keyframes overlay-anim {
 	0% {
 		visibility: hidden;

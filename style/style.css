@@ -102,14 +102,18 @@ section h2 {
 
 /* Section 1 */
 #s1 {
-    background: red;
     position: relative;
+    background-image: url("../img/accueil.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 #s1 > article {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 200px;
+    bottom: clamp(20px,11vw,200px);
     width: 50%;
     display: flex;
     flex-wrap: wrap;
@@ -117,6 +121,7 @@ section h2 {
     align-items: center;
 }
 #s1 button {
+    font-family: "cyberGras";
     font-size: 1.5rem;
     padding: 10px;
     cursor: pointer;
@@ -142,8 +147,7 @@ section h2 {
 }
 
 #s2 {
-    background: linear-gradient(135deg,#42bcb4,#00847d);
-    background-size: 150%;
+    background: black;    
 }
 #s2 article {
     width: 100%;
@@ -157,23 +161,22 @@ section h2 {
 }
 #s2 #descPres {
     max-width: 40%;
-    /* font-size: 1.25rem; */
-    font-size: clamp(12px,2vw,1.25rem);
     font-family: "cyberGras";
 }
 #descPres h3 {
     text-align: center;
     font-family: "80s";
+    font-size: clamp(16px,3vw,1.25rem);
 }
 #descPres h3, #descPres p:not(#descPres p:last-child) {
     margin-bottom: 23px;
 }
 #descPres p {
-    font-size: clamp(12px,2vw,1.25rem);
+    font-size: clamp(12px,2vw,1rem);
     font-family: "cyberGras";
 }
 
-/* Section 3 */
+/* Section 3-4 */
 #s3, #s4 {
     position: relative;
 }
@@ -215,13 +218,10 @@ section h2 {
     color: var(--violet);
 }
 #s3 > article img, #s4 > article img {
-    width: 300px;
-    height: 175px;
+    width: 150px;
     margin-bottom: 25px;
 }
 #s3 > article p, #s4 > article p {
-    text-align: justify;
-    text-align-last: justify;
     max-width: 75%;
 }
 
@@ -261,10 +261,26 @@ section h2 {
 #s3 > article .card > * {
     width: 50%;
 }
+#s3 .descCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+#s3 .descCard h3 {
+    font-family: "cyberGras";
+    display: inline;
+}
 
 /* Section 4 */
 #s4 h3 {
     font-family: 'cyberGras';
+}
+
+@media all and (max-width: 1000px) {
+    #s2 > .screen {
+        width: 100%;
+    }
 }
 
 @media all and (max-width: 750px) {
@@ -284,7 +300,7 @@ section h2 {
         margin-bottom: 20px;
     }
 
-    #s2 > article {
+    #s2 .screen > article {
         flex-direction: column;
         justify-content: space-evenly;
     }
