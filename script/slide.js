@@ -25,10 +25,10 @@ function scrollMain() {
 		}
 	}
 
-	if($("#s2").offset().top==0 && $("link").eq($("link").length-1).attr("href")!="style/cathodique.css") {
+	if(($("#s2").offset().top==0 || $("#s3").offset().top==0)&& $("link").eq($("link").length-1).attr("href")!="style/cathodique.css") {
 		setTimeout(function() {
 			$("head").append('<link rel="stylesheet" href="style/cathodique.css">');
-		},50);
+		},220);
 	}
 }
 
@@ -44,10 +44,10 @@ let posSlider=[0,0], wSlide, finSlide=[0,0], totalSlides;
 finSlide[0]=-$(window).width();
 finSlide[1]=-$(window).width();
 
-$("#s3 > button, #s4 > button").click(function() {
+$("#s3 button, #s4 button").click(function() {
 	let iAft=$(".apres").index($(this)), iBef=$(".avant").index($(this));
 
-	if($(this).parent().attr("id")=="s3") {
+	if($(this).parents("section").attr("id")=="s3") {
 		wSlide=$(".slider > div:first-child").get(0).scrollWidth*-1;
 		totalSlides=wSlide*$(".slider > .cardBox").length;
 	}

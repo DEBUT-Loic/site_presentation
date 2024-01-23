@@ -12,6 +12,13 @@
     --fail: #E74C3C;
     --warning: #F1C40F;
     --success: #2ECC71;
+
+    /* 90's */
+    --rose90: #ee73aa;
+    --bleuC90: #80d1f5;
+    --jaune90: #f5e76c;
+    --violet90: #c182d3;
+    --bleuF90: #416bc8;
 }
 * {
     padding: 0;
@@ -146,7 +153,7 @@ section h2 {
     z-index: -1;
 }
 
-#s2 {
+#s2, #s3 {
     background: black;    
 }
 #s2 article {
@@ -180,7 +187,7 @@ section h2 {
 #s3, #s4 {
     position: relative;
 }
-#s3 > article, #s4 > article {
+#s3 article, #s4 > article {
     height: 100%;
     display: flex;
     justify-content: flex-start;
@@ -193,14 +200,14 @@ section h2 {
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
 }
-#s3 > article .slider, #s4 > article .slider {
+#s3 article .slider, #s4 > article .slider {
     height: 100%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     transition: transform 1s;
 }
-#s3 > article .cardBox, #s4 > article .card {
+#s3 article .cardBox, #s4 > article .card {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -217,11 +224,11 @@ section h2 {
     font-family: "cyber";
     color: var(--violet);
 }
-#s3 > article img, #s4 > article img {
+#s3 article img, #s4 > article img {
     width: 150px;
     margin-bottom: 25px;
 }
-#s3 > article p, #s4 > article p {
+#s3 article p, #s4 > article p {
     max-width: 75%;
 }
 
@@ -248,17 +255,23 @@ section h2 {
 }
 
 /* Section 3 */
-#s3 > article .cardBox {
+#s3 h2 {
+    font-family: "90s";
+    color: var(--jaune90);
+    text-shadow: 3px 3px 1px var(--rose), 6px 6px 1px var(--rose90);
+    font-size: clamp(1.5rem,5vw,3.5rem);
+}
+#s3 article .cardBox {
     width: 100%;
     text-align: center;
 }
-#s3 > article .card {
+#s3 article .card {
     width: 80%;
     display: flex;
     align-items: center;
     justify-items: center;
 }
-#s3 > article .card > * {
+#s3 article .card > * {
     width: 50%;
 }
 #s3 .descCard {
@@ -278,7 +291,7 @@ section h2 {
 }
 
 @media all and (max-width: 1000px) {
-    #s2 > .screen {
+    section > .screen {
         width: 100%;
     }
 }
@@ -287,10 +300,10 @@ section h2 {
     nav {
         display: none;
     }
-    #s3 > article .card, #s4 > article .card {
+    #s3 article .card, #s4 > article .card {
         flex-direction: column;
     }
-    #s3 > article .card > * {
+    #s3 article .card > * {
         width: 90%;
     }
 }
