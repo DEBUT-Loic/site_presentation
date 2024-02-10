@@ -107,6 +107,11 @@ section h2 {
     transform: translateX(-50%);
 }
 
+/* Tous sections */
+#s2, #s3, #s4 {
+    background: black;    
+}
+
 /* Section 1 */
 #s1 {
     position: relative;
@@ -153,9 +158,6 @@ section h2 {
     z-index: -1;
 }
 
-#s2, #s3 {
-    background: black;    
-}
 #s2 article {
     width: 100%;
     height: 100%;
@@ -183,11 +185,11 @@ section h2 {
     font-family: "cyberGras";
 }
 
-/* Section 3-4 */
+/* Sections 3-4 */
 #s3, #s4 {
     position: relative;
 }
-#s3 article, #s4 > article {
+#s3 article, #s4 article {
     height: 100%;
     display: flex;
     justify-content: flex-start;
@@ -200,14 +202,14 @@ section h2 {
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
 }
-#s3 article .slider, #s4 > article .slider {
+#s3 article .slider, #s4 article .slider {
     height: 100%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     transition: transform 1s;
 }
-#s3 article .cardBox, #s4 > article .card {
+#s3 article .cardBox, #s4 article .card {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -220,15 +222,15 @@ section h2 {
     padding-left: 20px;
     scroll-snap-align: center;
 }
-#s3 .card > p, #s4 .card > p {
+#s3 .card > p {
     font-family: "cyber";
     color: var(--violet);
 }
-#s3 article img, #s4 > article img {
+#s3 article img, #s4 article img {
     width: 150px;
     margin-bottom: 25px;
 }
-#s3 article p, #s4 > article p {
+#s3 article p, #s4 article p {
     max-width: 75%;
 }
 
@@ -286,8 +288,18 @@ section h2 {
 }
 
 /* Section 4 */
+#s4 .titleS4 {
+    width: 300px;
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
 #s4 h3 {
-    font-family: 'cyberGras';
+    font-family: '2000sG';
+}
+#s4 p {
+    font-family: '2000sR';
 }
 
 @media all and (max-width: 1000px) {
@@ -322,7 +334,7 @@ section h2 {
         text-align: center;
     }
 
-    #s4 > article .card {
+    #s4 article .card {
         padding-left: 0;
     }
 }

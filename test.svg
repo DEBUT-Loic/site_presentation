@@ -1,8 +1,0 @@
-<svg>
-      <defs>
-        <pattern id="about-diagonal" width="8" height="8" patternUnits="userSpaceOnUse">
-          <path d="M-1,1 l8,-8 M0,8 l8,-8 M7,9 l8,-8" stroke="#000" stroke-width="1.5"></path>
-        </pattern>
-      </defs>
-      <rect x="0" y="0" width="100%" height="100%" fill="url(#about-diagonal)" fill-opacity="0.08"></rect>
-</svg>

@@ -18,3 +18,11 @@
     font-family: "90s";
     src: url("fonts/komikax.ttf");
 }
+@font-face {
+    font-family: "2000sR";
+    src: url("fonts/Cocon-Regular.ttf");
+}
+@font-face {
+    font-family: "2000sG";
+    src: url("fonts/Cocon-Bold.ttf");
+}

@@ -4,7 +4,7 @@ $("header li").click(function() {
 })
 
 
-$("#s4 img").hover(function() {
+$("#s4 .slider img").hover(function() {
 	$(this).fadeOut("fast",function() {
 		$(this).attr("src",`img/photo/${$(this).attr("alt")}_fun.png`)
 		$(this).fadeIn("fast");
@@ -25,7 +25,7 @@ function scrollMain() {
 		}
 	}
 
-	if(($("#s2").offset().top==0 || $("#s3").offset().top==0)&& $("link").eq($("link").length-1).attr("href")!="style/cathodique.css") {
+	if(($("#s2").offset().top==0 || $("#s3").offset().top==0 || $("#s4").offset().top==0)&& $("link").eq($("link").length-1).attr("href")!="style/cathodique.css") {
 		setTimeout(function() {
 			$("head").append('<link rel="stylesheet" href="style/cathodique.css">');
 		},220);
