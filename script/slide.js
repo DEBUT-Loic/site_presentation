@@ -40,10 +40,11 @@ for(let i=0;i<$(".slider").length;i++) {
 		$(".apres").eq(i).remove();
 	}
 }
+
+// Slider
 let posSlider=[0,0], wSlide, finSlide=[0,0], totalSlides;
 finSlide[0]=-$(window).width();
 finSlide[1]=-$(window).width();
-
 $("#s3 button, #s4 button").click(function() {
 	let iAft=$(".apres").index($(this)), iBef=$(".avant").index($(this));
 
@@ -54,6 +55,7 @@ $("#s3 button, #s4 button").click(function() {
 	else {
 		wSlide=$(".slider > div:first-child").get(1).scrollWidth*-1;
 		totalSlides=wSlide*$(".slider > .card").length;
+		console.log("test")
 	}
 
 	if($(this).hasClass("apres")) {
