@@ -3,20 +3,6 @@ $("header li").click(function() {
 	$(this).css({background:"black",color:"white"});
 })
 
-
-$("#s4 .slider img").hover(function() {
-	$(this).fadeOut("fast",function() {
-		$(this).attr("src",`img/photo/${$(this).attr("alt")}_fun.png`)
-		$(this).fadeIn("fast");
-	})
-	// $(this).attr("src",`img/photo/${$(this).attr("alt")}_fun.png`);
-}, function() {
-	$(this).fadeOut("fast",function() {
-		$(this).attr("src",`img/photo/${$(this).attr("alt")}.png`)
-		$(this).fadeIn("fast");
-	})
-})
-
 function scrollMain() {
 	for(let i=0;i<$("main > section").length;i++) {
 		if($("main > section").eq(i).offset().top==0) {
